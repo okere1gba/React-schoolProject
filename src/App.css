@@ -1,0 +1,55 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+}
+body {
+  font-family: "Open Sans";
+  margin: 0;
+  padding: 0;
+}
+.siderBar {
+  background-image: linear-gradient(rgb(122, 122, 122) rgb(216, 216, 216));
+}
+.sideberlist {
+  height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.row {
+  height: 70px;
+  width: auto;
+  list-style-type: none;
+  margin: 0%;
+  display: flex;
+  flex-direction: row;
+  color: gray;
+  justify-content: center;
+  align-items: center;
+}
+.row:hover {
+  cursor: pointer;
+  background-color: rgb(56, 53, 53);
+}
+#active {
+  background-color: rgb(56, 53, 53);
+}
+
+#icon {
+  flex: 30%;
+  display: grid;
+  place-items: center;
+}
+#title {
+  flex: 70%;
+  color: black;
+}
+
+.menu-bar {
+  margin: 10px;
+  border: 2px solid gray;
+  border-radius: 5px;
+}
+.userAcount {
+  justify-content: flex-end;
+}
