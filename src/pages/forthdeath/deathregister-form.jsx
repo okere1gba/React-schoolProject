@@ -1,5 +1,6 @@
+
 import * as React from "react";
-import "./birth.css";
+import "./deathregiistration.css";
 import {
   Avatar,
   Grid,
@@ -21,20 +22,20 @@ import FormLabel from "@mui/material/FormLabel";
 import InputLabel from "@mui/material/InputLabel";
 import NativeSelect from "@mui/material/NativeSelect";
 
-export default function BirthForm() {
+export default function DeathReg () {
   const myStyles = { padding: "30px 20px", width: 500, margin: "20px auto" };
   const headerStyles = { margin: 0 };
-  const avatarStyles = { backgroundColor: "green" };
+  const avatarStyles = { backgroundColor: "gray" };
 
   const formStyle = { padding: "20px" };
-  const dividerStyles = { backgroundColor: "green", mt: 6, width: "100%", height: "1px" }
+  const dividerStyles = { backgroundColor: "gray", mt: 6, width: "100%", height: "1px" }
 
   const [value, setValue] = React.useState(new Date("2014-08-18T21:11:54"));
 
   const handleChange = (newValue) => {
     setValue(newValue);
   };
-  const setMargin = { marginTop: 30, padding: 0, };
+  const setMargin = { marginTop: 30, padding: 0 };
 
   return (
     <Grid sx={{ bgColor: "gray" }}>
@@ -45,7 +46,7 @@ export default function BirthForm() {
           </Avatar>
           <h2 style={headerStyles}> Please register</h2>
           <Typography variant="caption">
-            Please fill this Brith Registertion form correctly
+            Please fill this Death Registration form correctly
           </Typography>
         </Grid>
 
@@ -64,7 +65,7 @@ export default function BirthForm() {
           {/* childs crigdentials*/}
           <Grid align="center">
             <Typography sx={{ mt: 3 }} variant="h6">
-              Childs Cridentials
+              Particulars of the Deceased
             </Typography>
           </Grid>
           <Divider style={dividerStyles} />
@@ -72,7 +73,7 @@ export default function BirthForm() {
             <Grid style={setMargin} xs={12}>
               <TextField
                 id="standard-basic"
-                label="Childs Name(Surname First)"
+                label="Name of Deceased(Surname First)"
                 variant="standard"
                 sx={{ pl: 0, width: "100%" }}
               />
@@ -85,7 +86,7 @@ export default function BirthForm() {
               <Grid xs={6}>
                 <TextField
                   id="standard-basic"
-                  label="Place of Birth"
+                  label="Occupation"
                   variant="standard"
                   sx={{ width: "100%", pl: 0 }}
                 />
@@ -94,7 +95,7 @@ export default function BirthForm() {
               <Grid xs={4}>
                 <FormControl fullWidth>
                   <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                    Type of Birth
+                    Marital Status
                   </InputLabel>
                   <NativeSelect
                     defaultValue={1}
@@ -104,7 +105,11 @@ export default function BirthForm() {
                     }}
                   >
                     <option value={1}>Single</option>
-                    <option value={2}>Mutiple</option>
+                    <option value={2}>Married</option>
+                    <option value={3}>Separated</option>
+                    <option value={4}>Divorced</option>
+                    <option value={5}>Widowed</option>
+                   
                   </NativeSelect>
                 </FormControl>
               </Grid>
@@ -119,6 +124,7 @@ export default function BirthForm() {
                   row
                   aria-labelledby="demo-row-radio-buttons-group-label"
                   name="row-radio-buttons-group"
+                
                 >
                   <FormControlLabel
                     value="female"
@@ -126,8 +132,9 @@ export default function BirthForm() {
                     label="Female"
                   />
                   <FormControlLabel
+                 
                     value="male"
-                    control={<Radio />}
+                    control={<Radio/>}
                     label="Male"
                   />
                 </RadioGroup>
@@ -137,7 +144,7 @@ export default function BirthForm() {
             <Grid style={setMargin} xs={4}>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DesktopDatePicker
-                  label="Date of Birth"
+                  label="Date of Death"
                   inputFormat="MM/dd/yyyy"
                   value={value}
                   sx={{ pl: 0, width: "50%" }}
@@ -146,11 +153,33 @@ export default function BirthForm() {
                 />
               </LocalizationProvider>
             </Grid>
+            <Grid item xs={4} sx={{ mt: 3, width:" 25%"}} align="center">
+            <TextField
+              id="outlined-number"
+              label="Age"
+              type="number"
+              InputLabelProps={{
+                shrink: true,
+              }}
+            />
           </Grid>
+
+          <Grid style={setMargin} sx={{ pl: 0 }} xs={12}>
+              <TextField
+                id="standard-basic"
+                label="State of Origin of Deceased"
+                variant="standard"
+                sx={{ pl: 0, width: "100%" }}
+              />
+            </Grid>
+            
+          </Grid>
+
+
           {/* fathers crigdentials*/}
           <Grid sx={{ mt: 6 }} align="center">
             <Typography className="text1" variant="h6">
-              Fathers Cridentials
+              Particulars of Informant
             </Typography>
           </Grid>
 
@@ -160,7 +189,7 @@ export default function BirthForm() {
             <Grid style={setMargin} xs={12}>
               <TextField
                 id="standard-basic"
-                label="Fathers Name(Surname First)"
+                label="Full Name(Surname First)"
                 variant="standard"
                 sx={{ pl: 0, width: "100%" }}
               />
@@ -168,7 +197,7 @@ export default function BirthForm() {
             <Grid style={setMargin} xs={12}>
               <TextField
                 id="standard-basic"
-                label="Address"
+                label="Address of Usual PLace of Residence"
                 variant="standard"
                 sx={{ width: "100%", pl: 0 }}
               />
@@ -177,78 +206,25 @@ export default function BirthForm() {
             <Grid style={setMargin} sx={{ pl: 0 }} xs={12}>
               <TextField
                 id="standard-basic"
-                label="State of Origin"
+                label="Relationship to the Deceased"
                 variant="standard"
                 sx={{ pl: 0, width: "100%" }}
               />
-            </Grid>
-          </Grid>
-          {/* mothers crigdentials*/}
-          <Grid sx={{ mt: 6 }} align="center">
-            <Typography className="text1" variant="h6">
-              Mothers Cridentials
-            </Typography>
-          </Grid>
-
-          <Divider style={dividerStyles} />
-
-          <Grid sx={{ m: 0 }} container>
-            <Grid style={setMargin} xs={12}>
-              <TextField
-                id="standard-basic"
-                label="Mothers Name(Surname First)"
-                variant="standard"
-                sx={{ pl: 0, width: "100%" }}
-              />
-            </Grid>
-
-            <Grid
-              container
-              direction={"row"}
-              sx={{ mt: 3, justifyContent: "space-between" }}
-            >
-              <Grid xs={6}>
-                <TextField
-                  id="standard-basic"
-                  label="Address"
-                  variant="standard"
-                  sx={{ width: "100%", pl: 0 }}
-                />
-              </Grid>
-              <Grid xs={4}>
-                <FormControl fullWidth>
-                  <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                    Marrital Satus
-                  </InputLabel>
-                  <NativeSelect
-                    defaultValue={2}
-                    inputProps={{
-                      name: "age",
-                      id: "uncontrolled-native",
-                    }}
-                  >
-                    <option value={1}>Single</option>
-                    <option value={2}>Married</option>
-                    <option value={3}>Divoriced</option>
-                    <option value={4}>Separated</option>
-                    <option value={5}>Widowed</option>
-                  </NativeSelect>
-                </FormControl>
-              </Grid>
             </Grid>
 
             <Grid style={setMargin} sx={{ pl: 0 }} xs={12}>
               <TextField
                 id="standard-basic"
-                label="State of Origin"
+                label="State of Origin of Informant"
                 variant="standard"
                 sx={{ pl: 0, width: "100%" }}
               />
             </Grid>
+
           </Grid>
 
           <Grid align="center" style={setMargin} sx={{ pl: 0 }}>
-            <Button  sx={{ backgroundColor: "green"}} variant="contained">Submit Form</Button>
+            <Button  sx={{ backgroundColor: "gray"}} variant="contained">Submit Form</Button>
           </Grid>
         </form>
       </Paper>
