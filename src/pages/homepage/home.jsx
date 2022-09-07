@@ -10,6 +10,7 @@ import {
   Paper,
   Card,
   createTheme,
+  Link,
 } from "@mui/material";
 
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
@@ -33,19 +34,39 @@ const Home = () => {
       <Box className={classes.headerBox}>
         <Box className={clsx(classes.flexColumn, classes.headerinner)}>
           <Box
-            sx={{ textAlign: "center", display: "flex", flexDirection: "row" }}
+            sx={{
+              flexDirection: {
+                xs: "column",
+                sm: "column",
+                md: "row",
+                lg: "row",
+              },
+            }}
+            className={classes.mainIconBox}
           >
             <Box>
-              <AddBusinessIcon sx={{ fontSize: 100 }} />
+              <AddBusinessIcon
+                sx={{
+                  textAlign: "center",
+                  fontSize: 50,
+                }}
+              />
             </Box>
 
             <Box
               sx={{
-                padding: "2rem 0",
                 textAlign: "center",
               }}
             >
-              <Typography sx={{ fontSize: 30 }}>QOS Market Place</Typography>
+              <Typography
+                sx={{
+                  fontWeight: "bold",
+                  fontSize: { xs: 27, sm: 27, md: 27, lg: 25, xl: 25 },
+                  fontFamily: "'Courgette', cursive;",
+                }}
+              >
+                QOS Market PLace
+              </Typography>
             </Box>
           </Box>
 
@@ -53,32 +74,35 @@ const Home = () => {
             <Typography
               variant="h1"
               className={classes.typography}
-              sx={{ fontSize: { xs: 50, sm: 50, md: 50, lg: 70, xl: 100 } }}
+              sx={{
+                fontWeight: "bold",
+                fontSize: { xs: 40, sm: 40, md: 50, lg: 70, xl: 70 },
+                marginTop: "3rem",
+              }}
             >
-              Build your dream business for $1/month
+              Build your dream business with QOS services
             </Typography>
-            <Box>
-              <Typography variant="h5" className={classes.typography}>
-                Start strong and grow with confidence. For a limited time, sign
-                up for a free trial and enjoy 3 months of Shopify for $1/month
-                on select plans—offer ends 08/25.
+            <Box sx={{ marginTop: "3rem" }}>
+              <Typography
+                sx={{ fontSize: { xs: 17, sm: 17, lg: 25, xl: 25 } }}
+                variant="h5"
+                className={classes.typography}
+              >
+                Start strong and grow with confidence. Sign up for free, and
+                enjoy the awesome range of services that QOS offers
               </Typography>
             </Box>
 
             <Box
               sx={{
-                display: "flex",
                 flexDirection: {
                   xs: "column",
                   sm: "column",
                   md: "row",
                   lg: "row",
                 },
-                height: "100%",
-                margin: "2rem 0",
-                justifyContent: "center",
-                alignItems: "center",
               }}
+              className={classes.middleContainer}
             >
               <FormControl
                 sx={{
@@ -88,32 +112,24 @@ const Home = () => {
                   width: "20rem",
                 }}
               >
-                <OutlinedInput placeholder="Please enter text" />
+                <OutlinedInput placeholder="Please enter your email" />
               </FormControl>
               <Button
-                sx={{
-                  margin: "0.5rem 1rem",
-                  background:
-                    "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-                  border: 0,
-
-                  borderRadius: 3,
-                  boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-                  color: "white",
-                  height: "3.5rem",
-                  width: "10rem",
-                }}
+                sx={{ margin: "0.5rem 1rem" }}
+                className={classes.buttonStyles}
                 variant="contained"
               >
                 Start free trial
               </Button>
             </Box>
 
-            <Box>
-              <Typography variant="body2" className={classes.typography}>
-                Start strong and grow with confidence. For a limited time, sign
-                up for a free trial and enjoy 3 months of Shopify for $1/month
-                on select plans—offer ends 08/25.
+            <Box sx={{ marginBottom: "3rem" }}>
+              <Typography sx={{ fontSize: 13 }} className={classes.typography}>
+                Start growing your business with confidence with QOS. Sign up
+                free. <br />
+                <Link href="#" color="inherit">
+                  View our terms and conditions
+                </Link>
               </Typography>
             </Box>
           </Box>
@@ -128,18 +144,16 @@ const Home = () => {
               md: "3rem 6rem",
               lg: "3rem 12rem",
             },
-            display: "flex",
-            flexDirection: { xs: "column", sm: "column", md: "row", lg: "row" },
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            flexWrap: "wrap",
-            backgroundImage:
-              "linear-gradient(to right bottom, #FCFEF4, #FFFFFF)",
           }}
+          className={classes.centerBox}
         >
           <Box className={classes.cardBoxStyles}>
             <div className={classes.cardIconstyles}>
-              <StoreIcon fontSize="6rem" className={classes.cardIconFont} />
+              <StoreIcon
+                color="success"
+                fontSize="6rem"
+                className={classes.cardIconFont}
+              />
             </div>
             <Typography variant="h5">Customizable templates</Typography>
             <Typography variant="body1" className={classes.typography2}>
@@ -149,24 +163,29 @@ const Home = () => {
           <Box className={classes.cardBoxStyles}>
             <div className={classes.cardIconstyles}>
               <CardGiftcardIcon
+                color="success"
                 fontSize="6rem"
                 className={classes.cardIconFont}
               />
             </div>
             <Typography variant="h5">All in one</Typography>
             <Typography variant="body1" className={classes.typography2}>
-              Shopify takes care of everything from marketing and payments to
-              secure transactions and shipping.
+              QOS takes care of everything from marketing and payments to secure
+              transactions and shipping.
             </Typography>
           </Box>
           <Box className={classes.cardBoxStyles}>
             <div className={classes.cardIconstyles}>
-              <PeopleIcon fontSize="6rem" className={classes.cardIconFont} />
+              <PeopleIcon
+                color="success"
+                fontSize="6rem"
+                className={classes.cardIconFont}
+              />
             </div>
 
             <Typography variant="h5">A safe and efficient platform</Typography>
             <Typography variant="body1" className={classes.typography2}>
-              Millions of users trust Shopify to manage their online stores.
+              Millions of users trust QOS to manage their online stores.
             </Typography>
           </Box>
         </Box>
@@ -177,17 +196,26 @@ const Home = () => {
           backgroundColor: "#0F2D25",
           display: "flex",
           flexDirection: { xs: "column", sm: "column", md: "row", lg: "row" },
+          width: "100%",
+          color: "white",
         }}
       >
-        <Box>
-          <Typography variant="h3" className={classes.typography}>
-            Build your dream business for $1/month
-          </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            padding: "2rem",
+          }}
+        >
           <Box>
-            <Typography variant="body1" className={classes.typography}>
-              Start strong and grow with confidence. For a limited time, sign up
-              for a free trial and enjoy 3 months of Shopify for $1/month on
-              select plans—offer ends 08/25.
+            <Typography variant="h4">
+              Build your dream business with QOS services
+            </Typography>
+          </Box>
+          <Box>
+            <Typography sx={{ marginTop: "2rem" }} variant="body1">
+              QOS offers the best and most efficent way to build your dream
+              business
             </Typography>
           </Box>
         </Box>
@@ -197,8 +225,15 @@ const Home = () => {
             sx={{
               display: "flex",
               alignItems: "center",
-              margin: "1rem 2rem",
+              marginTop: "2rem",
               justifyContent: "center",
+              padding: "0 3rem",
+              flexDirection: {
+                xs: "column",
+                sm: "column",
+                md: "row",
+                lg: "row",
+              },
             }}
           >
             <Box>
@@ -210,23 +245,13 @@ const Home = () => {
                   width: "20rem",
                 }}
               >
-                <OutlinedInput placeholder="Please enter text" />
+                <OutlinedInput placeholder="Please enter your email" />
               </FormControl>
             </Box>
             <Box>
               <Button
-                sx={{
-                  margin: "0.5rem 1rem",
-                  background:
-                    "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-                  border: 0,
-
-                  borderRadius: 3,
-                  boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
-                  color: "white",
-                  height: "3.5rem",
-                  width: "10rem",
-                }}
+                sx={{ margin: "0.5rem 1rem" }}
+                className={classes.buttonStyles}
                 variant="contained"
               >
                 Start free trial
@@ -236,12 +261,17 @@ const Home = () => {
 
           <Box>
             <Typography
-              sx={{ color: "white", textAlign: "center", padding: "2rem" }}
+              sx={{
+                color: "white",
+                textAlign: "center",
+                padding: "0.5rem 2rem",
+              }}
               variant="body2"
             >
-              Start strong and grow with confidence. For a limited time, sign up
-              for a free trial and enjoy 3 months of Shopify for $1/month on
-              select plans—offer ends 08/25.
+              Sign up with QOS for free, also you can <br />
+              <Link href="#" color="inherit">
+                View our terms and conditions
+              </Link>
             </Typography>
           </Box>
         </Box>
