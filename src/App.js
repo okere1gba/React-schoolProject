@@ -5,31 +5,41 @@ import DrawerFunc from "./components/drawer/drawer-comp";
 import BirthForm from "./pages/forbirth/birthregister-form";
 import Info from "./pages/info";
 import DeathReg from "./pages/forthdeath/deathregister-form";
-import { ThemeProvider } from "@material-ui/styles";
+// import { ThemeProvider } from "@material-ui/styles";
 import { createTheme } from "@mui/system";
 import Home from "./pages/homepage/home";
 import Testing from "./pages/contacts";
 import Error from "./pages/errorPage/error";
 import ErrorMessage from "./pages/errorPage/error-message";
 import Contacts from "./pages/contacts";
+import { MailRounded } from "@mui/icons-material";
+import ButtonAppBar from "./pages/formNav/formnavber";
 
 const theme = createTheme();
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Routes>
+    <main>
+     
+       <Routes>
+         
         <Route path="/" element={<DrawerFunc />}>
-          <Route path="contact" element={<Contacts />} />
+          <Route index element={<Contacts />} />
           <Route path="home" element={<Home />} />
           <Route path="info" element={<Info />} />
+          <Route path="rigisterbirth" element={<BirthForm />} />
+          <Route path="rigisterdeath" element={<DeathReg />} />
         </Route>
-        <Route path="rigisterbirth" element={<BirthForm />} />
-        <Route path="rigisterdeath" element={<DeathReg />} />
+        <Route>
+        
         {/* <Route path="home1" element={<Home />} /> */}
         <Route path="*" element={<Error />} />
         <Route path="error" element={<ErrorMessage />} />
+        </Route>
+       
       </Routes>
-    </ThemeProvider>
+    </main>
+     
+  
   );
 }
 

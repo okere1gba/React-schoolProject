@@ -27,7 +27,7 @@ const SiderbarData = [
   },
 
   {
-    title: "Purpose",
+    title: "Retrive Data",
     icon: <InfoIcon />,
     link: "/info",
     id: 4,

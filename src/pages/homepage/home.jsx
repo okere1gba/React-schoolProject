@@ -15,6 +15,7 @@ import {
 
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
+import EscalatorWarningIcon from "@mui/icons-material/EscalatorWarning";
 
 import PeopleIcon from "@mui/icons-material/People";
 import StoreIcon from "@mui/icons-material/Store";
@@ -22,12 +23,31 @@ import useStyles from "./styles";
 import clsx from "clsx";
 import { ThemeProvider, useTheme } from "@emotion/react";
 import { height } from "@mui/system";
+import Web3 from "web3";
 
 const Home = () => {
   // usetate first
   // usehoooks
   // event handles
   const classes = useStyles();
+
+  let web3;
+
+  const connectWalletHandler = async () => {
+    if (
+      typeof window !== "undefined" &&
+      typeof window.ethereum !== "undefined"
+    ) {
+      try {
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+        web3 = new Web3(window.ethereum);
+      } catch (error) {
+        alert(error.message);
+      }
+    } else {
+      alert("Please install Metamask");
+    }
+  };
 
   return (
     <>
@@ -45,7 +65,7 @@ const Home = () => {
             className={classes.mainIconBox}
           >
             <Box>
-              <AddBusinessIcon
+              <EscalatorWarningIcon
                 sx={{
                   textAlign: "center",
                   fontSize: 50,
@@ -65,7 +85,7 @@ const Home = () => {
                   fontFamily: "'Courgette', cursive;",
                 }}
               >
-                QOS Market PLace
+                Birth Registration
               </Typography>
             </Box>
           </Box>
@@ -80,7 +100,7 @@ const Home = () => {
                 marginTop: "3rem",
               }}
             >
-              Build your dream business with QOS services
+              A Decentralized registration portal
             </Typography>
             <Box sx={{ marginTop: "3rem" }}>
               <Typography
@@ -88,8 +108,8 @@ const Home = () => {
                 variant="h5"
                 className={classes.typography}
               >
-                Start strong and grow with confidence. Sign up for free, and
-                enjoy the awesome range of services that QOS offers
+                Ensure immutability with your birth records, with blockchain
+                technology
               </Typography>
             </Box>
 
@@ -104,7 +124,7 @@ const Home = () => {
               }}
               className={classes.middleContainer}
             >
-              <FormControl
+              {/* <FormControl
                 sx={{
                   borderRadius: 2,
                   backgroundColor: "white",
@@ -113,20 +133,21 @@ const Home = () => {
                 }}
               >
                 <OutlinedInput placeholder="Please enter your email" />
-              </FormControl>
+              </FormControl> */}
               <Button
                 sx={{ margin: "0.5rem 1rem" }}
                 className={classes.buttonStyles}
                 variant="contained"
+                onClick={connectWalletHandler}
               >
-                Start free trial
+                Connect wallet
               </Button>
             </Box>
 
             <Box sx={{ marginBottom: "3rem" }}>
               <Typography sx={{ fontSize: 13 }} className={classes.typography}>
-                Start growing your business with confidence with QOS. Sign up
-                free. <br />
+                Connect with you crypto wallet and upload your data
+                <br />
                 <Link href="#" color="inherit">
                   View our terms and conditions
                 </Link>
@@ -149,15 +170,16 @@ const Home = () => {
         >
           <Box className={classes.cardBoxStyles}>
             <div className={classes.cardIconstyles}>
-              <StoreIcon
+              <EscalatorWarningIcon
                 color="success"
                 fontSize="6rem"
                 className={classes.cardIconFont}
               />
             </div>
-            <Typography variant="h5">Customizable templates</Typography>
+            <Typography variant="h5">Project Title</Typography>
             <Typography variant="body1" className={classes.typography2}>
-              Free website designs to launch your store quickly and easily.
+              Project on A prototype system for birth and death registration
+              using blockchain technology
             </Typography>
           </Box>
           <Box className={classes.cardBoxStyles}>
@@ -168,10 +190,11 @@ const Home = () => {
                 className={classes.cardIconFont}
               />
             </div>
-            <Typography variant="h5">All in one</Typography>
+            <Typography variant="h5">The scope of our study</Typography>
             <Typography variant="body1" className={classes.typography2}>
-              QOS takes care of everything from marketing and payments to secure
-              transactions and shipping.
+              The scope of our study will be limited to building a prototype
+              system design that will makes a decentralized birth and death
+              registration process possible.
             </Typography>
           </Box>
           <Box className={classes.cardBoxStyles}>
@@ -183,9 +206,10 @@ const Home = () => {
               />
             </div>
 
-            <Typography variant="h5">A safe and efficient platform</Typography>
+            <Typography variant="h5">What is a smart contract?</Typography>
             <Typography variant="body1" className={classes.typography2}>
-              Millions of users trust QOS to manage their online stores.
+              A smart contract is an agreement between two people or entities in
+              the form of computer code, programmed to execute automatically.
             </Typography>
           </Box>
         </Box>
@@ -193,11 +217,9 @@ const Home = () => {
 
       <Box
         sx={{
-          backgroundColor: "#0F2D25",
           display: "flex",
           flexDirection: { xs: "column", sm: "column", md: "row", lg: "row" },
           width: "100%",
-          color: "white",
         }}
       >
         <Box
@@ -209,13 +231,13 @@ const Home = () => {
         >
           <Box>
             <Typography variant="h4">
-              Build your dream business with QOS services
+              Building a decentralized system for birth registration.
             </Typography>
           </Box>
           <Box>
             <Typography sx={{ marginTop: "2rem" }} variant="body1">
-              QOS offers the best and most efficent way to build your dream
-              business
+              Project on A prototype system for birth and death registration
+              using blockchain technology
             </Typography>
           </Box>
         </Box>

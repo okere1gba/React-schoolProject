@@ -11,14 +11,15 @@ const useStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
-    backgroundColor: "#0F2D25",
-    color: "white",
+    // backgroundColor: "#0F2D25",
+    color: "black",
     // [theme.breakpoints.down("sm")]: {
     //   fontSize: 10,
     // },
   },
 
   headerinner: {
+    backgroundImage:'',
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -36,7 +37,7 @@ const useStyles = makeStyles({
   },
 
   typography: {
-    color: "white",
+    
     textAlign: "center",
     marginTop: 10,
   },
@@ -115,7 +116,7 @@ const useStyles = makeStyles({
     padding: 4,
   },
   flexBox: {
-    backgroundColor: "#0F2D25",
+    // backgroundColor: "#0F2D25",
     display: "flex",
     flexDirection: { xs: "column", sm: "column", md: "row", lg: "row" },
   },

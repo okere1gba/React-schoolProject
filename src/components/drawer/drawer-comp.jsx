@@ -102,7 +102,7 @@ const DrawerFunc = (props) => {
             }}
           >
             <Typography variant="h6" noWrap display="inline">
-              NPC-Project
+              Project
             </Typography>
 
             <div className="userAcount" style={{ display: "inline" }}>
